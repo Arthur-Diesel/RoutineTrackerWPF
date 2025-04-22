@@ -1,0 +1,87 @@
+﻿<Window x:Class="RoutineTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoutineTracker"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="RoutineTracker" Height="1000" Width="500">
+    <Window.Resources>
+        <Style TargetType="ToggleButton">
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Content" Value="Feito" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="GreenYellow" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="Red" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ToggleButtonLabelStyle" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" FontSize="24" FontWeight="Bold" Text="RoutineTracker" />
+        <TextBlock Grid.Row="0" Grid.Column="2" x:Name="TextBlockDate" HorizontalAlignment="Center" FontSize="24" />
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Text="“Learn as if you will live forever, live like you will die tomorrow.” — Mahatma Gandhi" />
+        <Button Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Content="Exportar histórico para .CSV" Padding="5" Foreground="White" Background="BlueViolet" BorderBrush="Black" BorderThickness="1" Click="Button_Click"/>
+        <TextBlock Text="Café da Manhã" Grid.Row="3" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="3" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleBreakfest" />
+        <TextBlock Text="Almoço" Grid.Row="4" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="4" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleLunch" />
+        <TextBlock Text="Lanche da Tarde" Grid.Row="5" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="5" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleEveningLunch"/>
+        <TextBlock Text="Janta" Grid.Row="6" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="6" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleDinner"/>
+        <TextBlock Text="Não Comer fora da Dieta" Grid.Row="7" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="7" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleOutOfDiet"/>
+        <TextBlock Text="Exercício Físico" Grid.Row="8" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="8" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleExercise"/>
+        <TextBlock Text="S/ Álcool" Grid.Row="9" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="9" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleAlcoohol"/>
+        <TextBlock Text="Leitura" Grid.Row="10" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="10" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleLecture"/>
+        <TextBlock Text="Estudo" Grid.Row="11" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="11" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleStudy"/>
+        <TextBlock Text="Organização" Grid.Row="12" Style="{StaticResource ToggleButtonLabelStyle}" />
+        <ToggleButton Grid.Column="2" Grid.Row="12" Checked="HandleCheck" Unchecked="HandleUnchecked" x:Name="ToggleOrganization"/>
+    </Grid>
+</Window>
